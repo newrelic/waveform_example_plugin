@@ -2,9 +2,9 @@ package com.newrelic.examples.waveform;
 
 import java.io.IOException;
 
-import com.newrelic.datain.AgentFactory;
-import com.newrelic.datain.ConfigurationException;
-import com.newrelic.datain.Runner;
+import com.newrelic.data.in.AgentFactory;
+import com.newrelic.data.in.ConfigurationException;
+import com.newrelic.data.in.Runner;
 
 
 public class Main {	

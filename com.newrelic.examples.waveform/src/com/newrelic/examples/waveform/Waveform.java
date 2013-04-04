@@ -2,7 +2,7 @@ package com.newrelic.examples.waveform;
 
 import java.util.Map;
 
-import com.newrelic.datain.*;
+import com.newrelic.data.in.*;
 
 public class Waveform extends Agent {
 	private String name = "Default";
@@ -18,7 +18,6 @@ public class Waveform extends Agent {
     
 	@Override
 	public void configure(Map<String, Object> properties) {
-		super.configure(properties);
 		name = (String) properties.get("name");
 		sawtoothMax = ((Long) properties.get("sawtoothMax")).intValue();
 		squarewaveMax = ((Long) properties.get("squarewaveMax")).intValue();

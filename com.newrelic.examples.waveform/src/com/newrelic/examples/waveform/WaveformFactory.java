@@ -1,8 +1,8 @@
 package com.newrelic.examples.waveform;
 
-import com.newrelic.datain.Agent;
-import com.newrelic.datain.AgentFactory;
-import com.newrelic.datain.Runner;
+import com.newrelic.data.in.Agent;
+import com.newrelic.data.in.AgentFactory;
+import com.newrelic.data.in.Runner;
 
 public class WaveformFactory extends AgentFactory {
 
