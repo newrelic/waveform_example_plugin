@@ -1,7 +1,8 @@
 package com.newrelic.examples.waveform;
 
 import java.util.Map;
-import com.newrelic.datain.sdk.*;
+
+import com.newrelic.datain.*;
 
 public class Waveform extends Agent {
 	private String name = "Default";
@@ -30,8 +31,8 @@ public class Waveform extends Agent {
 
 	@Override
 	public void pollCycle() {
-		reportMetric("Simple/Sawtooth", "value", nextSawtouthNumber());
-		reportMetric("Simple/Square", "value", nextSquareNumber());
+		reportMetric("Waveforms/Sawtooth", "value", nextSawtouthNumber());
+		reportMetric("Waveforms/Square", "value", nextSquareNumber());
 	}
 	
 	private int nextSawtouthNumber() {
