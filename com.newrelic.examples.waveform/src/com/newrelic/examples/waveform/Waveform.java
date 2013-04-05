@@ -10,19 +10,14 @@ public class Waveform extends Agent {
 	private int sawtouthCounter = 0;
 	private int squarewaveMax = 20;
 	private int squarewaveCounter = 0;
-
-
-    public Waveform() {
-    	super("com.newrelic.examples.waveform", "0.0.1", "Simple Waveform Data Generator");
+	
+    public Waveform(AgentFactory factory, String name, int sawtoothMax, int squarewaveMax) {
+    	super(factory, "0.0.1");
+    	this.name = name;
+    	this.sawtoothMax = sawtoothMax;
+    	this.squarewaveMax = squarewaveMax;
     }
     
-	@Override
-	public void configure(Map<String, Object> properties) {
-		name = (String) properties.get("name");
-		sawtoothMax = ((Long) properties.get("sawtoothMax")).intValue();
-		squarewaveMax = ((Long) properties.get("squarewaveMax")).intValue();
-	}
-
 	@Override
 	public String getComponentHumanLabel() {
 		return name + ":" + sawtoothMax + "," + squarewaveMax;

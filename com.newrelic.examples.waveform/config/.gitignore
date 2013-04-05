@@ -1,2 +1,3 @@
 /newrelic.properties
 /log.properties
+/com.newrelic.examples.waveform.json
