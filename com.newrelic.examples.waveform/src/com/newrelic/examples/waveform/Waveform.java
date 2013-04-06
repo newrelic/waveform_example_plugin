@@ -1,7 +1,6 @@
 package com.newrelic.examples.waveform;
 
 import com.newrelic.data.in.Agent;
-import com.newrelic.data.in.AgentFactory;
 
 public class Waveform extends Agent {
 	private String name = "Default";
