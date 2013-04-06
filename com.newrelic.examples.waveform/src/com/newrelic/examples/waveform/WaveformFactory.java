@@ -1,15 +1,15 @@
 package com.newrelic.examples.waveform;
 
 import java.util.Map;
+import java.util.logging.Logger;
 
 import com.newrelic.data.in.Agent;
 import com.newrelic.data.in.AgentFactory;
-import com.newrelic.data.in.Runner;
 
 public class WaveformFactory extends AgentFactory {
 
-	public WaveformFactory(Runner runner) {
-		super(runner, "com.newrelic.examples.waveform");
+	public WaveformFactory() {
+		super("com.newrelic.examples.waveform");
 	}
 	
 	@Override

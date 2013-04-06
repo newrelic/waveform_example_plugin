@@ -7,7 +7,7 @@ import com.newrelic.data.in.Runner;
 public class Main {	
     public static void main(String[] args) {
     	Runner runner = new Runner();
-    	new WaveformFactory(runner);
+    	runner.add(new WaveformFactory());
     	
 		try {
 	    	//Never returns
