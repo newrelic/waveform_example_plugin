@@ -1,0 +1,13 @@
+[
+	{
+		"name" : "First component",
+		"sawtoothMax" : 15
+		"squarewaveMax" : 10
+	}
+	
+	{
+		"name" : "Second component",
+		"sawtoothMax" : 10
+		"squarewaveMax" : 5
+	}
+]

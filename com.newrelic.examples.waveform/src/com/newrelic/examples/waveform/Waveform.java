@@ -5,13 +5,13 @@ import com.newrelic.data.in.AgentFactory;
 
 public class Waveform extends Agent {
 	private String name = "Default";
-	private int sawtoothMax = 20;
+	private int sawtoothMax;
 	private int sawtouthCounter = 0;
-	private int squarewaveMax = 20;
+	private int squarewaveMax;
 	private int squarewaveCounter = 0;
 	
-    public Waveform(AgentFactory factory, String name, int sawtoothMax, int squarewaveMax) {
-    	super(factory, "0.0.1");
+    public Waveform(String name, int sawtoothMax, int squarewaveMax) {
+    	super("com.newrelic.examples.waveform", "0.0.1");
     	this.name = name;
     	this.sawtoothMax = sawtoothMax;
     	this.squarewaveMax = squarewaveMax;
