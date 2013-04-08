@@ -1,6 +1,8 @@
 package com.newrelic.examples.waveform;
 
 import com.newrelic.data.in.Agent;
+import com.newrelic.data.in.processors.EpochCounter;
+import com.newrelic.data.in.processors.Processor;
 
 public class Waveform extends Agent {
 	private String name = "Default";
@@ -8,6 +10,7 @@ public class Waveform extends Agent {
 	private int sawtouthCounter = 0;
 	private int squarewaveMax;
 	private int squarewaveCounter = 0;
+	private Processor sawRate = new EpochCounter();
 	
     public Waveform(String name, int sawtoothMax, int squarewaveMax) {
     	super("com.newrelic.examples.waveform", "0.0.1");
@@ -20,11 +23,13 @@ public class Waveform extends Agent {
 	public String getComponentHumanLabel() {
 		return name + ":" + sawtoothMax + "," + squarewaveMax;
 	}
-
+	
 	@Override
 	public void pollCycle() {
-		reportMetric("Waveforms/Sawtooth", "value", nextSawtouthNumber());
+		int nextSawTooth = nextSawtouthNumber();
+		reportMetric("Waveforms/Sawtooth", "value", nextSawTooth);
 		reportMetric("Waveforms/Square", "value", nextSquareNumber());
+		reportMetric("Waveforms/Sawtooth Rate", "value/sec", sawRate.process(nextSawTooth).floatValue());
 	}
 	
 	private int nextSawtouthNumber() {
