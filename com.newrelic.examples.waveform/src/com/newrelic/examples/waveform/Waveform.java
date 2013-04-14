@@ -21,7 +21,7 @@ public class Waveform extends Agent {
     
 	@Override
 	public String getComponentHumanLabel() {
-		return name + ":" + sawtoothMax + "," + squarewaveMax;
+		return name;
 	}
 	
 	@Override
