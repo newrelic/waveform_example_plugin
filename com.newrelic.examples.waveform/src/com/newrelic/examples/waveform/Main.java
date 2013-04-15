@@ -1,7 +1,7 @@
 package com.newrelic.examples.waveform;
 
-import com.newrelic.data.in.ConfigurationException;
 import com.newrelic.data.in.Runner;
+import com.newrelic.data.in.configuration.ConfigurationException;
 
 
 public class Main {	
