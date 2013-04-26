@@ -1,13 +1,12 @@
 [
 	{
-		"name" : "First component",
-		"sawtoothMax" : 15,
-		"squarewaveMax" : 10
-	}
-	
-	{
-		"name" : "Second component",
+		"name" : "My component",
 		"sawtoothMax" : 10,
-		"squarewaveMax" : 5
-	}
+		"squarewaveMax" : 8
+	}	
+	{
+		"name" : "More components",
+		"sawtoothMax" : 14,
+		"squarewaveMax" : 6
+	}	
 ]
