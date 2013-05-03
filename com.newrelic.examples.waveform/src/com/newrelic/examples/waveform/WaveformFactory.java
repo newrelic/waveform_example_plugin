@@ -2,8 +2,8 @@ package com.newrelic.examples.waveform;
 
 import java.util.Map;
 
-import com.newrelic.data.in.Agent;
-import com.newrelic.data.in.AgentFactory;
+import com.newrelic.platform.metrics.publish.Agent;
+import com.newrelic.platform.metrics.publish.AgentFactory;
 
 public class WaveformFactory extends AgentFactory {
 

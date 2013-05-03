@@ -1,8 +1,8 @@
 package com.newrelic.examples.waveform;
 
-import com.newrelic.data.in.Agent;
-import com.newrelic.data.in.processors.EpochCounter;
-import com.newrelic.data.in.processors.Processor;
+import com.newrelic.platform.metrics.publish.Agent;
+import com.newrelic.platform.metrics.publish.processors.EpochCounter;
+import com.newrelic.platform.metrics.publish.processors.Processor;
 
 public class Waveform extends Agent {
 	private String name = "Default";

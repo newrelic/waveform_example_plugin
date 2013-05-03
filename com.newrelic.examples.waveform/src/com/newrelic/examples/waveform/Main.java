@@ -1,12 +1,15 @@
 package com.newrelic.examples.waveform;
 
-import com.newrelic.data.in.Runner;
-import com.newrelic.data.in.configuration.ConfigurationException;
+import com.newrelic.platform.metrics.publish.Runner;
+import com.newrelic.platform.metrics.publish.configuration.ConfigurationException;
 
 
 public class Main {	
     public static void main(String[] args) {
     	Runner runner = new Runner();
+    	
+    	/* DEBUG */
+    	runner.getConfiguration().internalProcessDebugArgs(args);
     	runner.add(new WaveformFactory());
     	
 		try {
