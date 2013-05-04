@@ -1,7 +1,7 @@
 package com.newrelic.examples.waveform;
 
-import com.newrelic.platform.metrics.publish.Runner;
-import com.newrelic.platform.metrics.publish.configuration.ConfigurationException;
+import com.newrelic.metrics.publish.Runner;
+import com.newrelic.metrics.publish.configuration.ConfigurationException;
 
 
 public class Main {	
@@ -10,6 +10,7 @@ public class Main {
     	
     	/* DEBUG */
     	runner.getConfiguration().internalProcessDebugArgs(args);
+    	
     	runner.add(new WaveformFactory());
     	
 		try {
