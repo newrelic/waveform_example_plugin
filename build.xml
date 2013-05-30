@@ -4,10 +4,10 @@
     <property name="builddir" value="build"/>
 	<property name="libdir" value="lib"/>
 	<property name="distdir" location="dist"/>
-	<property name="version" value="beta"/>
+	<property name="version" value="0.0.2"/>
     <property name="jarfile" value="${distdir}/waveform-${version}.jar"/>
 	
-    <property name="sdk.jar" value="${libdir}/metrics_publish-beta.jar"/>
+    <property name="sdk.jar" value="${libdir}/metrics_publish-0.2.2.jar"/>
 
     <path id="classpath">
         <pathelement location="${sdk.jar}"/>
