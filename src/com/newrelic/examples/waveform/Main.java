@@ -8,9 +8,6 @@ public class Main {
     public static void main(String[] args) {
     	Runner runner = new Runner();
     	
-    	/* DEBUG */
-    	runner.getConfiguration().internalProcessDebugArgs(args);
-    	
     	runner.add(new WaveformFactory());
     	
 		try {
