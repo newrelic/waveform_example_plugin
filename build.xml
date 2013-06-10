@@ -1,54 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project name="waveform" default="jar" basedir=".">
-    <property name="srcdir" value="src/"/>
-    <property name="builddir" value="build"/>
-	<property name="libdir" value="lib"/>
-	<property name="distdir" location="dist"/>
-	<property name="version" value="0.0.2"/>
-    <property name="jarfile" value="${distdir}/waveform-${version}.jar"/>
+<project name="waveform" default="dist" basedir=".">
 	
-    <property name="sdk.jar" value="${libdir}/metrics_publish-0.2.2.jar"/>
+	<property name="version" value="0.0.3"/>
+	<property name="filename" value="waveform-${version}"/>
+	<property name="jarfile" value="${filename}.jar"/>
+	<property name="tarfile" value="${filename}.tar.gz" />
+	
+	<property name="build.dir" value="build"/>
+	<property name="build.classes.dir" value="${build.dir}/classes"/>
+	<property name="build.jar.dir" value="${build.dir}/jar"/>
+	<property name="build.tar.dir" value="${build.dir}/tar"/>
+	<property name="build.tar.src.dir" value="${build.tar.dir}/${filename}"/>
+	
+    <property name="src.dir" value="src"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="conf.dir" value="config"/>
+	<property name="dist.dir" location="dist"/>
+    
+    <property name="sdk.jar" value="${lib.dir}/metrics_publish-0.2.3.jar"/>
 
     <path id="classpath">
         <pathelement location="${sdk.jar}"/>
     </path>
-    	
+    
+	<target name="clean">
+        <echo>Cleaning project...</echo>
+        <delete dir="${build.dir}"/>
+        <echo>Done.</echo>
+    </target>
+	
     <target name="init" depends="clean">
-        <echo>Creating directory: ${builddir}</echo>
-        <mkdir dir="${builddir}"/>
+        <echo>Creating directory: ${build.dir}</echo>
+        <mkdir dir="${build.dir}"/>
     </target>
     
     <target name="compile" depends="init">
         <!--  Compile the java code  -->
         <echo>Building project...</echo>
-        <javac srcdir="${srcdir}" destdir="${builddir}">
+    	<mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.classes.dir}">
             <classpath refid="classpath"/>
         </javac>
         <echo>Done.</echo>
     </target>
 	
-    <target name="clean">
-        <echo>Cleaning project...</echo>
-        <delete dir="${builddir}"/>
-        <delete file="${jarfile}"/>
-        <echo>Done.</echo>
-    </target>
-	
     <target name="jar" depends="compile" description="create a Jar file for the application">
+    	<mkdir dir="${build.jar.dir}"/>
     	<tstamp/>
-    	<jar destfile="${jarfile}">
+    	<jar destfile="${build.jar.dir}/${jarfile}">
             <manifest>
             	<attribute name="Specification-Title" value="Platform Waveform Example"/>
             	<attribute name="Specification-Vendor" value="New Relic, Inc."/>
-            	<attribute name="Implementation-Vendor" value="New Relic, Inc."/>                <attribute name="Built-Date" value="${TODAY}"/>
+            	<attribute name="Implementation-Vendor" value="New Relic, Inc."/>                
+            	<attribute name="Built-Date" value="${TODAY}"/>
                 <attribute name="Specification-Version" value="${version}"/>   
-            	<attribute name="Implementation-Version" value="${version} ${TODAY}"/> 
+            	<attribute name="Implementation-Version" value="${version} ${TODAY}"/>
+            	<attribute name="Main-Class" value="com.newrelic.examples.waveform.Main"/>
     	    </manifest>
-            <fileset dir="${builddir}"/>
+            <fileset dir="${build.classes.dir}"/>
             <zipfileset src="${sdk.jar}"/> 
-            <manifest>
-                <attribute name="Main-Class" value="com.newrelic.examples.waveform.Main"/>
-            </manifest>
        </jar>
+    </target>
+	
+	<target name="dist" depends="jar" description="create a downloadable file">
+        <mkdir dir="${build.tar.src.dir}" />
+        <copy todir="${build.tar.src.dir}/config">
+            <fileset dir="${conf.dir}" />
+        </copy>
+        <copy file="${build.jar.dir}/${jarfile}" todir="${build.tar.src.dir}" />
+        <tar compression="gzip" destfile="${dist.dir}/${tarfile}">
+            <tarfileset dir="${build.tar.dir}" />
+        </tar>
     </target>
 </project>

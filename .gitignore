@@ -4,3 +4,4 @@ build/
 META-INF/
 bin/
 .project
+/bin
