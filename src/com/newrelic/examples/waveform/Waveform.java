@@ -13,7 +13,7 @@ public class Waveform extends Agent {
 	private Processor sawRate = new EpochCounter();
 	
     public Waveform(String name, int sawtoothMax, int squarewaveMax) {
-    	super("_TYPE_YOUR_GUID_HERE_", "0.0.3");
+    	super("_TYPE_YOUR_GUID_HERE_", "0.0.4");
     	this.name = name;
     	this.sawtoothMax = sawtoothMax;
     	this.squarewaveMax = squarewaveMax;
@@ -29,7 +29,7 @@ public class Waveform extends Agent {
 		int nextSawTooth = nextSawtouthNumber();
 		reportMetric("Waveforms/Sawtooth", "value", nextSawTooth);
 		reportMetric("Waveforms/Square", "value", nextSquareNumber());
-		reportMetric("Waveforms/Sawtooth Rate", "value/sec", sawRate.process(nextSawTooth).floatValue());
+		reportMetric("Waveforms/Sawtooth Rate", "value/sec", sawRate.process(nextSawTooth));
 	}
 	
 	private int nextSawtouthNumber() {
