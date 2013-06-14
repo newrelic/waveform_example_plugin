@@ -1,2 +1,2 @@
-newrelic_waveform_java_example_extension
+newrelic_waveform_java_example_plugin
 ========================================
