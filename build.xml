@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="waveform" default="dist" basedir=".">
 	
-	<property name="version" value="0.0.3"/>
+	<property name="version" value="1.0.0"/>
 	<property name="filename" value="waveform-${version}"/>
 	<property name="jarfile" value="${filename}.jar"/>
 	<property name="tarfile" value="${filename}.tar.gz" />
@@ -17,7 +17,7 @@
 	<property name="conf.dir" value="config"/>
 	<property name="dist.dir" location="dist"/>
     
-    <property name="sdk.jar" value="${lib.dir}/metrics_publish-0.2.3.jar"/>
+    <property name="sdk.jar" value="${lib.dir}/metrics_publish-1.0.0.jar"/>
 
     <path id="classpath">
         <pathelement location="${sdk.jar}"/>
@@ -38,7 +38,7 @@
         <!--  Compile the java code  -->
         <echo>Building project...</echo>
     	<mkdir dir="${build.classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${build.classes.dir}">
+        <javac srcdir="${src.dir}" destdir="${build.classes.dir}" target="1.6" source="1.6">
             <classpath refid="classpath"/>
         </javac>
         <echo>Done.</echo>
