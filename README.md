@@ -48,7 +48,7 @@ Starting the Java plugin agent
 2. Edit `config/newrelic.properties` and replace `YOUR_LICENSE_KEY_HERE` with your New Relic license key
 3. From your shell run: `java -jar waveform-*.jar`
 4. Look for error-free startup messages on stdout, such as "com.newrelic.metrics.publish.Runner setupAndRun" and "INFO: New Relic monitor started."
-5. Wait a few minutes for New Relic to being processing the data sent from your agent.
+5. Wait a few minutes for New Relic to start processing the data sent from your agent.
 6. Sign in to your New Relic account.
 7. From the New Relic menu bar, look for the name of the agent that you just created (the **some_plugin_name** part of your GUID).
 8. To view your plugin's summary page, click the plugin's name ("example").
@@ -56,4 +56,4 @@ Starting the Java plugin agent
 Source Code
 -----------
 
-This plugin can be found at https://github.com/newrelic-platform/newrelic_java_wikipedia_plugin
+This plugin can be found at https://github.com/newrelic-platform/waveform_example_plugin
