@@ -7,7 +7,7 @@ import com.newrelic.metrics.publish.processors.Processor;
 public class Waveform extends Agent {
 	private String name = "Default";
 	private int sawtoothMax;
-	private int sawtouthCounter = 0;
+	private int sawtoothCounter = 0;
 	private int squarewaveMax;
 	private int squarewaveCounter = 0;
 	private Processor sawRate = new EpochCounter();
@@ -26,18 +26,18 @@ public class Waveform extends Agent {
 	
 	@Override
 	public void pollCycle() {
-		int nextSawTooth = nextSawtouthNumber();
+		int nextSawTooth = nextSawtoothNumber();
 		reportMetric("Waveforms/Sawtooth", "value", nextSawTooth);
 		reportMetric("Waveforms/Square", "value", nextSquareNumber());
 		reportMetric("Waveforms/Sawtooth Rate", "value/sec", sawRate.process(nextSawTooth));
 	}
 	
-	private int nextSawtouthNumber() {
-		sawtouthCounter = sawtouthCounter + 1;
-		if(sawtouthCounter > sawtoothMax) {
-			sawtouthCounter = 0;
+	private int nextSawtoothNumber() {
+		sawtoothCounter = sawtoothCounter + 1;
+		if(sawtoothCounter > sawtoothMax) {
+			sawtoothCounter = 0;
 		}
-		return sawtouthCounter;
+		return sawtoothCounter;
 	}
 	
 	private int nextSquareNumber() {
