@@ -13,7 +13,7 @@ public class Waveform extends Agent {
 	private Processor sawRate = new EpochCounter();
 	
     public Waveform(String name, int sawtoothMax, int squarewaveMax) {
-    	super("_TYPE_YOUR_GUID_HERE_", "1.0.1");
+    	super("_TYPE_YOUR_GUID_HERE_", "1.0.2");
     	this.name = name;
     	this.sawtoothMax = sawtoothMax;
     	this.squarewaveMax = squarewaveMax;
